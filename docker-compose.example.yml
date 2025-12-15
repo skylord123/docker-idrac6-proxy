@@ -1,0 +1,38 @@
+version: '3.8'
+
+# Example docker-compose.yml for using the pre-built image
+# Download this file and edit the IDRAC_HOST to get started quickly
+
+services:
+  idrac-proxy:
+    image: ghcr.io/skylord123/docker-idrac6-proxy:latest
+    container_name: idrac-proxy
+    ports:
+      - "8443:8443"
+    environment:
+      # REQUIRED: Change this to your iDRAC IP address
+      - IDRAC_HOST=192.168.1.21
+      - IDRAC_PORT=443
+      - PROXY_PORT=8443
+    restart: unless-stopped
+    networks:
+      - idrac-net
+
+networks:
+  idrac-net:
+    driver: bridge
+
+# Usage:
+# 1. Edit IDRAC_HOST above to your iDRAC IP
+# 2. Run: docker compose up -d
+# 3. Access: https://localhost:8443
+#
+# Multiple iDRACs:
+# Duplicate the service section with different names and ports:
+#
+#   idrac2-proxy:
+#     image: ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest
+#     ports:
+#       - "8444:8443"
+#     environment:
+#       - IDRAC_HOST=192.168.1.22

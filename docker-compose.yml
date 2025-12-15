@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  idrac-proxy:
+    # Use pre-built image from GitHub Container Registry
+    # Comment out the 'image' line and uncomment 'build: .' to build locally
+    image: ghcr.io/skylord123/docker-idrac6-proxy:latest
+    # build: .
+
+    container_name: idrac-proxy
+    ports:
+      - "8443:8443"
+    environment:
+      # Change this to your iDRAC IP address
+      - IDRAC_HOST=192.168.1.21
+      - IDRAC_PORT=443
+      - PROXY_PORT=8443
+    restart: unless-stopped
+    networks:
+      - idrac-net
+
+networks:
+  idrac-net:
+    driver: bridge
