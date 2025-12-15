@@ -31,7 +31,7 @@ networks:
 # Duplicate the service section with different names and ports:
 #
 #   idrac2-proxy:
-#     image: ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest
+#     image: ghcr.io/skylord123/docker-idrac6-proxy:latest
 #     ports:
 #       - "8444:8443"
 #     environment:

@@ -1,7 +1,7 @@
 # iDRAC6 Legacy SSL/TLS Proxy
 
-[![Docker Build](https://github.com/YOURUSERNAME/docker-idrac6-proxy/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/YOURUSERNAME/docker-idrac6-proxy/actions/workflows/docker-publish.yml)
-[![GitHub release](https://img.shields.io/github/v/release/YOURUSERNAME/docker-idrac6-proxy)](https://github.com/YOURUSERNAME/docker-idrac6-proxy/releases)
+[![Docker Build](https://github.com/skylord123/docker-idrac6-proxy/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/skylord123/docker-idrac6-proxy/actions/workflows/docker-publish.yml)
+[![GitHub release](https://img.shields.io/github/v/release/skylord123/docker-idrac6-proxy)](https://github.com/skylord123/docker-idrac6-proxy/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Docker-based SSL/TLS proxy that enables modern browsers to connect to old Dell iDRAC6 interfaces by translating between modern and legacy SSL/TLS protocols.
@@ -40,7 +40,7 @@ docker run -d \
   -e IDRAC_HOST=192.168.1.21 \
   -e IDRAC_PORT=443 \
   --restart unless-stopped \
-  ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest
+  ghcr.io/skylord123/docker-idrac6-proxy:latest
 ```
 
 Then access: `https://localhost:8443`
@@ -52,21 +52,21 @@ docker run -d \
   --name idrac1-proxy \
   -p 8443:8443 \
   -e IDRAC_HOST=192.168.1.21 \
-  ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest
+  ghcr.io/skylord123/docker-idrac6-proxy:latest
 
 # iDRAC 2
 docker run -d \
   --name idrac2-proxy \
   -p 8444:8443 \
   -e IDRAC_HOST=192.168.1.22 \
-  ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest
+  ghcr.io/skylord123/docker-idrac6-proxy:latest
 ```
 
 ### Option 2: Docker Compose (Recommended)
 
 1. **Download docker-compose.yml:**
 ```bash
-wget https://raw.githubusercontent.com/YOURUSERNAME/docker-idrac6-proxy/main/docker-compose.yml
+wget https://raw.githubusercontent.com/skylord123/docker-idrac6-proxy/main/docker-compose.yml
 ```
 
 2. **Edit your iDRAC IP:**
@@ -87,7 +87,7 @@ docker compose up -d
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/YOURUSERNAME/docker-idrac6-proxy.git
+git clone https://github.com/skylord123/docker-idrac6-proxy.git
 cd docker-idrac6-proxy
 ```
 
@@ -96,7 +96,7 @@ cd docker-idrac6-proxy
 services:
   idrac-proxy:
     # Comment out the image line
-    # image: ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest
+    # image: ghcr.io/skylord123/docker-idrac6-proxy:latest
     build: .  # Uncomment this line
 ```
 
@@ -220,9 +220,9 @@ docker exec idrac-proxy /opt/openssl-legacy/bin/openssl s_client \
 ### Pre-Built Images
 
 Pre-built Docker images are automatically published to GitHub Container Registry on every release:
-- Latest stable: `ghcr.io/YOURUSERNAME/docker-idrac6-proxy:latest`
-- Specific version: `ghcr.io/YOURUSERNAME/docker-idrac6-proxy:v1.0.0`
-- Branch builds: `ghcr.io/YOURUSERNAME/docker-idrac6-proxy:branch-feature-name`
+- Latest stable: `ghcr.io/skylord123/docker-idrac6-proxy:latest`
+- Specific version: `ghcr.io/skylord123/docker-idrac6-proxy:v1.0.0`
+- Branch builds: `ghcr.io/skylord123/docker-idrac6-proxy:branch-feature-name`
 
 Images are built for both `linux/amd64` and `linux/arm64` platforms.
 
